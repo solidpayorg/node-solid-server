@@ -81,7 +81,7 @@ You need an SSL certificate from a _certificate authority_, such as your domain 
 For testing purposes, you can use `bin/solid-test` with a _self-signed_ certificate, generated as follows:
 
 ```
-$ openssl req -outform PEM -keyform PEM -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout ../privkey.pem -days 365 -out ../fullchain.pem
+$ openssl req -outform PEM -keyform PEM -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout ../privkey.pem -days 36500 -out ../fullchain.pem
 
 ```
 
