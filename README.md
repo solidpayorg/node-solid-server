@@ -81,7 +81,7 @@ You need an SSL certificate from a _certificate authority_, such as your domain 
 For testing purposes, you can use `bin/solid-test` with a _self-signed_ certificate, generated as follows:
 
 ```
-$ openssl req -outform PEM -keyform PEM -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout ../privkey.pem -days 36500 -out ../fullchain.pem
+$ openssl req -outform PEM -keyform PEM -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout ./config/privkey.pem -days 36500 -out ./config/fullchain.pem
 
 ```
 
@@ -111,7 +111,7 @@ $ solid start
 Otherwise, if you want to use flags, this would be the equivalent
 
 ```bash
-$ solid start --multiuser --port 8443 --ssl-cert /path/to/cert --ssl-key /path/to/key --root ./data
+$ solid start --multiuser --port 8443 --ssl-cert ./config/fullchain.pem --ssl-key ./config/privkey.pem --root ./data
 ```
 
 Your users will have a dedicated folder under `./data` at `./data/<username>.<yourdomain.tld>`. Also, your root domain's website will be in `./data/<yourdomain.tld>`. New users can create accounts on `/api/accounts/new` and create new certificates on `/api/accounts/cert`. An easy-to-use sign-up tool is found on `/api/accounts`.
